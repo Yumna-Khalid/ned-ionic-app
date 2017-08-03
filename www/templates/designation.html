@@ -1,0 +1,18 @@
+<ion-view style="background-color: #e4e5e7" title="Designations">
+  <ion-header-bar class="bar-positive" align-title="center">
+  </ion-header-bar>
+  <ion-content style="background-color: #e4e5e7">
+    <button class = "button icon icon-right ion-plus-circled" style="font-size: medium;" ng-click="addDsg()">
+      New
+    </button>
+    <ion-list>
+      <ion-item style="background-color: #e4e5e7" class="item item-content item-thumbnail-left"
+                ng-repeat="dsg in designations">
+        <img ng-src="img/ned_app.png">
+        <br />
+        <h2>{{dsg.value}}</h2>
+        <a class="button button-balanced button-small" ng-click="deleteDsg()" style="font-size: 14px;">Delete</a>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,108 @@
+/* Empty. Add your own CSS if you like */
+.font {
+  font-size: 12px !important;
+}
+
+.item {
+  background-color:  #e4e5e7 !important;
+}
+.bar-footer {
+  height: 60px !important;
+}
+
+.splash {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/** Styling for the username field **/
+label.item.has-error {
+  border-bottom: 2px solid red;
+}
+
+/** Styling for the password field when an error exists**/
+label.item.has-error-lr {
+  border-left: 3px solid red;
+  border-right: 3px solid red;
+}
+
+/** Styling for the password field when an error has been resolved**/
+label.item.valid-lr {
+  border-left: 4px solid green;
+  border-right: 4px solid green;
+}
+
+/** Styling for the error text and container **/
+.form-errors {
+  margin: 5px 0
+}
+.form-error {
+  padding: 2px 0 2px 16px;
+  color: red;
+}
+
+.row {
+  padding: 10px 40px;
+  height: 289px;
+}
+
+.col {
+  text-align: center;
+  border-bottom: solid 3px #008975;
+  background-color: #00bf9a;
+  color: white;
+}
+
+.row:first-child {
+  padding-top: 2cm;
+}
+
+.row:last-child {
+  padding-bottom: 2cm;
+}
+
+.col:first-child {
+  border-right: solid 8px #008975;
+}
+
+.icon {
+  font-size: 110px;
+}
+.row {
+  padding: 10px 40px;
+  height: 289px;
+}
+
+.col {
+  text-align: center;
+  border-bottom: solid 3px #e4e5e7;
+  background-color: #206eb8;
+  color: white;
+}
+
+.row:first-child {
+  padding-top: 2cm;
+}
+
+.row:last-child {
+  padding-bottom: 2cm;
+}
+
+.col:first-child {
+  border-right: solid 8px #e4e5e7;
+}
+
+.icon_admin {
+  font-size: 90px;
+}
+h4.admin {
+  color: white;
+}
+
+.icon-d-p {
+  color: #0a9dc7;
+  font-size: 30px;
+}

@@ -1,0 +1,51 @@
+<ion-view style="background-color: #e4e5e7">
+  <ion-content class="splash padding">
+    <ion-list class="list list-borderless list-inset">
+      <div class="item item-image">
+        <img ng-src="img/rsz_nedmeetinglogo1.png" alt="Ned_app">
+        <form name="signinForm" ng-submit="doLogin()">
+          <label class="item item-input"
+               ng-class="{ 'has-error-lr' :signinForm.username.$invalid && !signinForm.username.$pristine, 'valid-lr' : signinForm.username.$valid && !signinForm.username.$pristine }">
+            <span class="input-label" align="left"> <strong> User Name </strong> </span>
+            <input type="text" placeholder="John" name="username" ng-model="loginData.username" ng-minlength="5" required>
+          </label>
+          <div class="form-errors" id="valid"
+             ng-show="!signinForm.username.$pristine"
+             ng-messages="signinForm.username.$error"
+             ng-messages-include="templates/form-errors.html">
+          </div>
+          <label class="item item-input"
+               ng-class="{ 'has-error-lr' :signinForm.password.$invalid && !signinForm.password.$pristine, 'valid-lr' : signinForm.password.$valid && !signinForm.password.$pristine }">
+            <span class="input-label"> <strong> Password </strong> </span>
+            <input type="password" placeholder="John" name="password" ng-model="loginData.password" ng-minlength="4" required>
+          </label>
+          <div class="form-errors"
+             ng-show="!signinForm.password.$pristine"
+             ng-messages="signinForm.password.$error"
+             ng-messages-include="templates/form-errors.html">
+          </div>
+          <!--<div class="checkbox">
+          <label class="item item-input">
+            <input type="checkbox" name="rememberMe" ng-model="rememberMe">Remember Me
+          </label>
+            </div>-->
+          <button type="submit" class="button button-block button-positive ">
+            Sign In
+          </button>
+        </form>
+      </div>
+        <!--<a class="button button-block button-positive ">
+          Sign In
+        </a>-->
+
+
+
+    </ion-list>
+  </ion-content>
+
+  <ion-footer-bar style="background-color:  #e4e5e7" class="bar-light item-borderless" align-title="center" >
+    <div class="title font bar-footer"><b>Powered by
+      Computer Science Research Department</b></div>
+  </ion-footer-bar>
+
+</ion-view>

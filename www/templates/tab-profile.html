@@ -1,0 +1,28 @@
+<ion-view style="background-color: #e4e5e7">
+  <ion-header-bar class="bar-positive" align-title="center">
+
+    <h2 class="title"> Profile </h2>
+
+  </ion-header-bar>
+
+  <ion-content class="padding" style="background-color: #e4e5e7">
+  <div class="card" style="background-color: #e4e5e7" >
+    <div class="item item-thumbnail-left item-text-wrap">
+      <img ng-src="{{baseURL+faculty.image}}">
+      <h2><strong>{{faculty.name}}</strong></h2>
+      <h3><strong>{{faculty.designation}}</strong></h3>
+      <h3><strong>{{faculty.department}}</strong></h3>
+      <p ng-if="loggedIn"><strong>User Name: </strong>{{username}} <a>Edit</a></p>
+      <p ng-if="loggedIn"><strong>Email </strong>{{faculty.email}} <a>Edit</a></p>
+      <p ng-if="loggedIn"><strong>Contact Number: </strong>{{faculty.contact_no}} <a>Edit</a></p>
+      <p ng-if="loggedIn"><strong>Memberships: </strong></p>
+      <p ng-if="loggedIn" ng-repeat="member in faculty.membership">{{member}} <a>Edit</a></p>
+      <button class="button button-small" ui-sref="admin">Admin</button>
+    </div>
+
+    <div class="item item-calm">
+      <button class="button button-block button-energized" ng-click="logOut()" ng-if="loggedIn" >Sign Out</button>
+    </div>
+  </div>
+</ion-content>
+</ion-view>

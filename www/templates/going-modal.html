@@ -1,0 +1,19 @@
+<ion-modal-view style="background-color: #e4e5e7">
+  <ion-header-bar class="bar bar-header bar-positive">
+    <button class="button button-clear button-primary" ng-click="modal.hide()">Back</button>
+    <h1 class="title">New Contact</h1>
+    <button class="button button-clear button-primary" ng-click="sendResponse(radio.checked)"><b>Send</b></button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <ion-radio ng-value="'A'" ng-model="radio.checked">Available
+    </ion-radio>
+    <ion-checkbox
+      ng-repeat="day in dateArray"
+      ng-model="checkin[$index]"
+      ng-show="radio.checked=='A'"
+      ng-true-value="{{dateArray[$index]}}">{{dateArray[$index] | date: 'EEE, MMM dd, y'}}
+    </ion-checkbox>
+    <ion-radio ng-value="'B'" ng-model="radio.checked">Not Available</ion-radio>
+
+  </ion-content>
+</ion-modal-view>

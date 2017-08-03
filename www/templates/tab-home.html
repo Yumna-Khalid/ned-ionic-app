@@ -1,0 +1,54 @@
+<!--
+<ion-view style="background-color: #e4e5e7">
+  <ion-header-bar class="bar-positive" align-title="center">
+    <h2 class="title">Home</h2>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list style="background-color: #e4e5e7">
+      <ion-item class="item item-content item-thumbnail-left "
+                ng-repeat="meeting in myMeetings"
+                href="#/tabs/personalmeeting/{{meeting._id}}">
+        <img ng-src="img/rsz_nedmeetinglogo1.png">
+        <h2>{{meeting.meeting}}</h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+-->
+
+<ion-view style="background-color: #e4e5e7" onload="init();">
+  <ion-header-bar class="bar-positive" align-title="center">
+    <h2 class="title">Home</h2>
+  </ion-header-bar>
+  <ion-content style="background-color: #e4e5e7" >
+    <div class="list list-inset">
+
+      <div class="list-item">
+        <div class="item item-divider item-royal">
+          <h3>Personal Notes <button class="button-icon item-icon-left icon-calm ion-android-add-circle"></button> </h3>
+        </div>
+
+      </div>
+
+        <div class="item item-content item-thumbnail-left item-icon-right" ng-repeat="meeting in myMeetings"
+             ui-sref="tabs.myMeetingdetail({id: meeting._id})"
+             href="#/tabs/personalmeeting/{{meeting._id}}">
+          <img ng-src="img/fin.jpg">
+          <h2>{{meeting.meeting}}</h2>
+          <p>{{meeting.description}}</p>
+          <i style="font-size: 20px; color:#808080;" class="icon ion-chevron-right"></i>
+        </div>
+      <!--<div class="list-item item-icon-right" ng-repeat="meeting in myMeetings"
+           href="#/tabs/personalmeeting/{{meeting._id}}">
+        <div class="item item-divider item-royal">
+          <h3>{{meeting.meeting}}<button class="button-icon item-icon-left icon-calm ion-android-add-circle"></button> </h3>
+        </div>
+
+      </div>-->
+    </div>
+
+  </ion-content>
+</ion-view>
+
+

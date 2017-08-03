@@ -1,0 +1,68 @@
+<ion-view style="background-color: #e4e5e7">
+  <ion-header-bar class="bar-positive" align-title="center">
+    <h2 class="title">Meeting Detail</h2>
+  </ion-header-bar>
+  <ion-content>
+    <div class="card">
+      <div class="item item-body item-text-wrap" ng-if="meeting.cancel==false">
+        <img class="full-image" ng-src="{{baseURL+meeting.invitedBy.image}}">
+        <h2><b><i>Invited By: </i></b>{{meeting.invitedBy.name}}
+          <span style="font-size:75%">{{meeting.invitedBy.designation}}</span>
+        </h2>
+        <h3>{{meeting.meeting}}</h3>
+        <p>{{meeting.description}}</p>
+        <p>{{meeting.type}}</p>
+        <p ng-if="meeting.meetingDate==null"><b><i>Meeting has to be going either of these days: </i></b></br>
+          From {{meeting.fromDate | date :  "dd/MM/y"}} To {{meeting.endDate | date :  "dd/MM/y"}}</p>
+        <p ng-if="meeting.meetingDate!=null"><b><i>Meeting has been scheduled on {{meeting.meetingDate | date :  "dd/MM/y"}}</i></b></p>
+        <p><b><i>Time: </i></b>{{meeting.time | date : 'hh:mm'}}</p>
+        <p><b><i>Where: </i></b>{{meeting.venu}}</p>
+        <table>
+          <thead>
+          <th><p><b><i>Invitees</i></b></p></th>
+          <th><p><b><i>Availability</i></b></p></th>
+          </thead>
+          <tbody>
+          <tr ng-repeat="invitee in meeting.participants">
+            <td>
+              <p>{{invitee.participant}}</p>
+            </td>
+            <td>
+              <p ng-if="invitee.availability.length==0 ">Not Available</p>
+              <p ng-if="invitee.availability.length!=0" ng-repeat="day in invitee.availability" >{{invitee.availability[$index] | date: 'EEE, MMM dd, y'}}</p>
+            </td>
+        </tr>
+          </tbody>
+        </table>
+        <p></p>
+        <button class="button button-balanced button-small" ng-click="clickedMe(meeting._id)">Show Statistics</button>
+
+        <div class="item item-divider" ng-if="countercount">
+        <fusioncharts
+          width="100%"
+          type="column2d"
+          datasource="{{myDataSource}}">
+        </fusioncharts>
+        </div>
+      </div>
+      <div class="item item-body item-text-wrap" ng-if="meeting.cancel==true">
+        <h2>This meeting has been cancelled</h2>
+      </div>
+    </div>
+    <style>
+      table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th, td {
+        padding: 15px;
+      }
+    </style>
+  </ion-content>
+</ion-view>

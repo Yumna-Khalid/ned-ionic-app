@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <button class="button button-clear button-primary" ng-click="closeModal(3)">Done</button>
+    <h1 class="title">Faculty Groups</h1>
+    <button class="button button-clear button-primary" ng-click="toggleSelect()">Select</button>
+  </ion-header-bar>
+  <ion-content style="background-color: #e4e5e7">
+
+    <ion-list ng-repeat="group in memberships">
+    <ion-checkbox class="item-avatar item-checkbox-right" style="height: 50px;"
+                  ng-model="checkedddd.check[$index]"
+                  ng-change="clickGroup(group.value, $index)"
+                  ng-show="showCheckbox">
+      <img ng-src="img/group-users.png">
+      {{group.value}}
+    </ion-checkbox>
+    </ion-list>
+
+    <ion-list ng-show="!showCheckbox">
+      <ion-item type="item-text-wrap" class="item item-icon-right item-avatar" ng-repeat="groups in memberships" ng-click="openModal(groups.value)">
+        <img src="img/group-users.png"/>
+        {{groups.value}}<i style="font-size: 20px; color:#696969;" class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item type="item-text-wrap" class="item item-icon-right item-avatar" ng-click="all_faculty_modal.show()">
+        <img src="img/group-users.png"/>Others
+        <i style="font-size: 20px; color:#696969;" class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

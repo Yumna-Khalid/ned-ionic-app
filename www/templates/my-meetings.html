@@ -1,0 +1,28 @@
+<ion-view style="background-color: #e4e5e7">
+  <ion-header-bar class="bar-positive" align-title="center">
+    <h2 class="title">Meeting Detail</h2>
+  </ion-header-bar>
+  <ion-content>
+    <div class="card">
+      <div class="item item-body item-text-wrap">
+        <h3><b>{{meeting.meeting}}</b></h3>
+        <p>{{meeting.description}}</p>
+        <p ng-if="meeting.meetingDate==null"><b><i>Meeting has to be going either of these days: </i></b></br>
+          From {{meeting.fromDate | date :  "dd/MM/y"}} To {{meeting.endDate | date :  "dd/MM/y"}}</p>
+        <p ng-if="meeting.meetingDate!=null"><b><i>Meeting has been scheduled on {{meeting.meetingDate | date :  "dd/MM/y"}}</i></b></p>
+        <p><b><i>Time: </i></b>{{meeting.time | date : 'hh:mm'}}</p>
+        <p><b><i>Where: </i></b>{{meeting.venu}}</p>
+        <p><b><i>Invitees</i></b></p>
+        <div ng-repeat="invitee in meeting.participants">
+          <p>{{invitee.participant}}</p>
+          <p ng-if="invitee.availability.length==0">Not Available</p>
+          <p ng-if="invitee.availability.length!=0">Available on:</p>
+          <p ng-if="invitee.availability.length!=0" ng-repeat="day in invitee.availability" >{{invitee.availability[$index] | date: 'EEE, MMM dd, y'}}</p>
+        </div>
+
+        <a class="button button-balanced button-small" ng-click="confirmMeeting(meeting._id)" ng-disabled="cancelled || meeting.cancel">Confirm Meeting</a>
+        <a class="button button-assertive button-small" ng-click="cancelMeeting(meeting._id)" ng-disabled="cancelled || meeting.cancel">Cancel Meeting</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

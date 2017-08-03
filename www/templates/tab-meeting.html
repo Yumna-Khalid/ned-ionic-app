@@ -1,0 +1,54 @@
+<ion-view style="background-color: #e4e5e7">
+  <ion-header-bar class="bar bar-positive" align-title="center">
+    <h2 class="title">Schedule Meeting</h2>
+  </ion-header-bar>
+  <ion-content>
+    <form name="meetingForm" id="meetingForm" ng-submit="sendNotification()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Meeting Name</span>
+          <input type="text" placeholder="Meeting" name="name" ng-model="addMeeting.meeting" required>
+        </label>
+        <label class="item item-input item-select">
+          <span class="input-label">Meeting Type</span>
+          <select style="background-color: #e4e5e7;" ng-model="addMeeting.meetingType" ng-options="mType.value as mType.label for mType in meetingType" required>
+          </select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Location</span>
+          <input type="text" placeholder="Meeting Place" name="location" ng-model="addMeeting.venu" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Select Time Period</span>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">From</span>
+          <input type="date" ng-model="addMeeting.fromDate">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">To</span>
+          <input type="date" ng-model="addMeeting.endDate">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Time</span>
+          <input type="time" ng-model="addMeeting.time">
+        </label>
+
+        <label class="item item-input">
+          <span class="input-label">Meeting Detail</span>
+          <input type="text" placeholder="" name="" ng-model="addMeeting.description" required>
+        </label>
+        <div class="item">
+        <button type="button" class="button button-block button-stable" ng-click="modal.show()">Invite People</button>
+        </div>
+          <label class="item">
+          <button type="submit" class="button button-block button-positive">Schedule Meeting</button>
+        </label>
+      </div>
+
+
+    </form>
+    <!--<pre ng-bind="addMeeting.participants | json"></pre>
+    <pre ng-bind="count | json"></pre>-->
+  </ion-content>
+</ion-view>

@@ -1,0 +1,91 @@
+<ion-view style="background-color: #e4e5e7">
+  <ion-header-bar class="bar-positive" align-title="center">
+
+    <h2 class="title"> Employee Verification Form </h2>
+
+  </ion-header-bar>
+<ion-content class="padding">
+  <form  name="empForm" novalidate ng-controller="FormController" ng-submit="doRegister()">
+
+    <div class="list">
+      <label class="item item-input item-stacked-label" ng-class="{'has-error-lr' : empForm.empno.$invalid && !empForm.empno.$pristine, 'valid-lr' : empForm.empno.$valid && !empForm.empno.$pristine}">
+        <span class="input-label"><strong> Employee ID </strong></span>
+        <input type="text" placeholder="1234" name="empno" ng-model="employee.personal_no" required>
+      </label>
+      <div ng-show="!empForm.empno.$pristine" class="form-errors" ng-messages="empForm.empno.$error" ng-messages-include="templates/form-errors.html">
+      </div>
+      <label class="item item-input item-stacked-label"
+             ng-class="{ 'has-error-lr' :empForm.empname.$invalid && !empForm.empname.$pristine, 'valid-lr' : empForm.empname.$valid && !empForm.empname.$pristine }">
+        <span class="input-label"> <strong> Employee Name </strong> </span>
+        <input type="text" placeholder="John" name="empname" ng-model="employee.username" ng-minlength="5" required>
+      </label>
+      <div class="form-errors" id="valid"
+           ng-show="!empForm.empname.$pristine"
+           ng-messages="empForm.empname.$error"
+           ng-messages-include="templates/form-errors.html">
+      </div>
+      <label class="item item-input item-stacked-label" ng-class="{ 'has-error-lr' : empForm.password.$invalid && !empForm.password.$pristine, 'valid-lr' : empForm.password.$valid && !empForm.password.$pristine}">
+        <span class="input-label"> <strong> Password </strong></span>
+        <input type="password" placeholder="Password" name="password" ng-model="employee.password" required>
+      </label>
+      <div class="form-errors"
+           ng-show="!empForm.password.$pristine"
+           ng-messages="empForm.password.$error"
+           ng-messages-include="templates/form-errors.html">
+      </div>
+      <label class="item item-input item-stacked-label" ng-class="{ 'has-error-lr' : empForm.email.$invalid && !empForm.email.$pristine, 'valid-lr' : empForm.email.$valid && !empForm.email.$pristine}">
+        <span class="input-label"> <strong> Email </strong></span>
+        <input type="email" placeholder="Email" name="email" ng-model="employee.email" required>
+      </label>
+      <div class="form-errors"
+           ng-show="!empForm.email.$pristine"
+           ng-messages="empForm.email.$error"
+           ng-messages-include="templates/form-errors.html">
+      </div>
+      <label class="item item-input item-stacked-label" ng-class="{ 'has-error-lr' : empForm.contact.$invalid && !empForm.contact.$pristine, 'valid-lr' : empForm.contact.$valid && !empForm.contact.$pristine}">
+        <span class="input-label"> <strong> Contact </strong></span>
+        <input type="tel" placeholder="Contact Number" name="contact" ng-model="employee.contact_no" required>
+      </label>
+      <div class="form-errors"
+           ng-show="!empForm.contact.$pristine"
+           ng-messages="empForm.contact.$error"
+           ng-messages-include="templates/form-errors.html">
+      </div>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          <strong>Department</strong>
+        </div>
+        <select ng-model="employee.department" ng-options="department.value as department.label for department in departments" required>
+          <option value=""> Department </option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          <strong> Designation </strong>
+        </div>
+        <select ng-model="employee.designation" ng-options="designation.value as designation.label for designation in designations" required>
+          <option value="">Select Designation</option>
+        </select>
+      </label>
+    </div>
+    <ion-list class="padding">
+      <ion-item>
+
+          <button type="submit" class="button button-block button-positive " ng-disabled="empForm.$invalid" >
+            Submit
+          </button>
+
+          <button type="button" class="button button-block button-positive " ng-click="refresh()">
+            Refresh
+          </button>
+       </ion-item>
+
+    </ion-list>
+  </form>
+  </ion-content>
+  <ion-footer-bar style="background-color:  #e4e5e7" class="bar-light item-borderless" align-title="center" >
+    <div class="title font bar-footer"><b>Powered by
+      Centre for Software Research & Development (CSRD)</b>
+      <b>NED University</b></div>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,18 @@
+<ion-view style="background-color: #e4e5e7" title="Groups">
+  <ion-header-bar class="bar bar-header bar-positive" align-title="center">
+  </ion-header-bar>
+
+  <ion-content style="background-color: #e4e5e7">
+    <button class = "button icon icon-right ion-plus-circled" style="font-size: medium;" ng-click="addCtg()">
+      New
+    </button>
+    <ion-list>
+      <ion-item class="item item-content item-thumbnail-left"
+                ng-repeat="grp in groups">
+        <img ng-src="img/ned_app.png"><br />
+        <h2>{{grp.value}}</h2>
+        <a class="button button-balanced button-small" ng-click="deleteCtg()" style="font-size: 14px;">Delete</a>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
